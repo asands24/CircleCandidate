@@ -1,1 +1,16 @@
 https://playcode.io/844736/
+
+import Cookies from 'js-cookie'
+import $ from 'jquery'
+
+var count = Number(Cookies.get('cookie'));
+
+if (Number.isNaN(count)) {
+  Cookies.set('cookie', 1);
+}
+else {
+  Cookies.set('cookie', count+1);
+}
+console.log('cookie count', Cookies.get('cookie'))
+
+$("#reset").on('click', () => Cookies.set('cookie', 0))
